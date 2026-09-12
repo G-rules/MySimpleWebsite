@@ -1,0 +1,1021 @@
+```css
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    background: #050814;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   RESPONSIVE BACKGROUND IMAGE
+   ========================================================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: url("dr.jpg");
+
+    /*
+     * Keeps the entire screen covered while
+     * maintaining the original image proportions.
+     */
+    background-size: cover;
+
+    /*
+     * Desktop position
+     */
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    /*
+     * Prevents the image from moving independently
+     * when the page is scrolled.
+     */
+    background-attachment: fixed;
+
+    /*
+     * Slight zoom prevents tiny gaps around the edges.
+     */
+    transform: scale(1.03);
+
+    z-index: -3;
+}
+
+
+/* =========================================================
+   DARK OVERLAY
+   ========================================================= */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: -2;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(3, 7, 20, 0.90),
+            rgba(8, 14, 35, 0.78),
+            rgba(3, 7, 20, 0.92)
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   TABLET BACKGROUND
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+    .background {
+        background-size: cover;
+
+        /*
+         * Slightly adjust this depending on where
+         * the person's face/body is positioned.
+         */
+        background-position: center center;
+
+        background-attachment: scroll;
+    }
+}
+
+
+/* =========================================================
+   MOBILE BACKGROUND
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .background {
+        background-size: cover;
+
+        /*
+         * Portrait/mobile screens are much narrower,
+         * so the image gets cropped differently.
+         */
+        background-position: center center;
+
+        background-attachment: scroll;
+
+        transform: scale(1.02);
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .background {
+        background-size: cover;
+
+      
+        background-position: center center;
+    }
+}
+
+
+/* =========================================================
+   DARK OVERLAY
+   ========================================================= */
+
+.overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -2;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(3, 7, 20, 0.90),
+            rgba(8, 14, 35, 0.78),
+            rgba(3, 7, 20, 0.92)
+        );
+
+    backdrop-filter: blur(2px);
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.container {
+
+    width: min(1150px, 92%);
+
+    min-height: 100vh;
+
+    margin: auto;
+
+    padding:
+        50px
+        20px
+        35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   GRADUATION ICON
+   ========================================================= */
+
+.graduation-icon {
+
+    width: 72px;
+
+    height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.25);
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.35);
+
+    font-size: 34px;
+
+    margin-bottom: 22px;
+
+    animation: float 3s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.eyebrow {
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    opacity: 0.80;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+h1 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(42px, 7vw, 88px);
+
+    line-height: 0.98;
+
+    max-width: 950px;
+
+    font-weight: 800;
+
+    text-shadow:
+        0 8px 35px rgba(0, 0, 0, 0.5);
+
+    margin-bottom: 20px;
+}
+
+h1 span {
+
+    display: block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #d8b76a,
+            #ffffff
+        );
+
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    animation:
+        shine 4s linear infinite;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.intro {
+
+    max-width: 650px;
+
+    font-size:
+        clamp(15px, 2vw, 20px);
+
+    line-height: 1.7;
+
+    opacity: 0.85;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   EVENT DATE
+   ========================================================= */
+
+.event-date {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-bottom: 38px;
+
+    width: 100%;
+}
+
+.date-line {
+
+    height: 1px;
+
+    width: min(150px, 15vw);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.5)
+        );
+}
+
+.date-line:last-child {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.5),
+            transparent
+        );
+}
+
+
+.date {
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    font-weight: 600;
+
+    opacity: 0.85;
+}
+
+.date strong {
+
+    display: block;
+
+    font-size: 17px;
+
+    letter-spacing: 2px;
+
+    margin-top: 7px;
+
+    color: #e5c77a;
+}
+
+
+/* =========================================================
+   TIME
+   ========================================================= */
+
+.time {
+
+    margin-top: 10px;
+
+    display: flex;
+
+    align-items: baseline;
+
+    justify-content: center;
+
+    gap: 8px;
+}
+
+.time span {
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.time small {
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.65;
+}
+
+
+/* =========================================================
+   COUNTDOWN
+   ========================================================= */
+
+.countdown {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: clamp(8px, 2vw, 22px);
+
+    width: 100%;
+
+    margin-bottom: 45px;
+}
+
+
+.time-box {
+
+    width:
+        clamp(75px, 13vw, 145px);
+
+    height:
+        clamp(90px, 15vw, 150px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.17);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(14px);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.time-box:hover {
+
+    transform:
+        translateY(-8px);
+
+    background:
+        rgba(255, 255, 255, 0.13);
+}
+
+
+.time-box span {
+
+    font-size:
+        clamp(32px, 6vw, 68px);
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+
+    font-variant-numeric:
+        tabular-nums;
+}
+
+.time-box small {
+
+    margin-top: 12px;
+
+    font-size:
+        clamp(8px, 1.2vw, 11px);
+
+    letter-spacing: 2px;
+
+    opacity: 0.65;
+
+    font-weight: 600;
+}
+
+
+.separator {
+
+    font-size:
+        clamp(25px, 4vw, 45px);
+
+    font-weight: 700;
+
+    opacity: 0.45;
+
+    margin-top: -15px;
+}
+
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+.message {
+
+    max-width: 700px;
+
+    margin-bottom: 45px;
+}
+
+
+.quote {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(19px, 3vw, 28px);
+
+    line-height: 1.5;
+
+    font-style: italic;
+
+    opacity: 0.9;
+}
+
+
+.gold-line {
+
+    width: 70px;
+
+    height: 2px;
+
+    margin: 20px auto;
+
+    background: #d8b76a;
+
+    box-shadow:
+        0 0 15px rgba(216,183,106,0.5);
+}
+
+
+.celebration {
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    opacity: 0.75;
+}
+
+.celebration strong {
+
+    color: #e5c77a;
+
+    font-weight: 700;
+}
+
+
+.celebration-text {
+
+    font-size:
+        clamp(25px, 5vw, 50px);
+
+    font-style: normal;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+
+    margin-top: auto;
+
+    padding-top: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    opacity: 0.5;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+footer span {
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   DECORATIVE MATHEMATICS
+   ========================================================= */
+
+.math {
+
+    position: fixed;
+
+    z-index: -1;
+
+    font-family:
+        "Times New Roman",
+        serif;
+
+    font-size: 80px;
+
+    opacity: 0.035;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    animation:
+        drift 12s ease-in-out infinite;
+}
+
+.math-1 {
+    top: 8%;
+    left: 7%;
+}
+
+.math-2 {
+    top: 20%;
+    right: 8%;
+    animation-delay: -3s;
+}
+
+.math-3 {
+    bottom: 15%;
+    left: 8%;
+    animation-delay: -6s;
+}
+
+.math-4 {
+    bottom: 8%;
+    right: 10%;
+    animation-delay: -2s;
+}
+
+.math-5 {
+    top: 55%;
+    left: 3%;
+    font-size: 50px;
+    animation-delay: -5s;
+}
+
+.math-6 {
+    top: 48%;
+    right: 4%;
+    animation-delay: -8s;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+@keyframes shine {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+
+@keyframes drift {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translate(15px, -20px)
+            rotate(5deg);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .container {
+
+        padding-top: 35px;
+
+        padding-bottom: 25px;
+    }
+
+    .graduation-icon {
+
+        width: 62px;
+
+        height: 62px;
+
+        font-size: 29px;
+    }
+
+    .eyebrow {
+
+        letter-spacing: 3px;
+    }
+
+    .event-date {
+
+        gap: 12px;
+
+        margin-bottom: 30px;
+    }
+
+    .date strong {
+
+        font-size: 14px;
+    }
+
+    .countdown {
+
+        gap: 7px;
+
+        margin-bottom: 35px;
+    }
+
+    .time-box {
+
+        border-radius: 15px;
+    }
+
+    .separator {
+
+        margin-top: -10px;
+    }
+
+    .math {
+
+        font-size: 55px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+    .container {
+
+        width: 94%;
+
+        padding:
+            28px
+            10px
+            20px;
+    }
+
+    .graduation-icon {
+
+        margin-bottom: 16px;
+    }
+
+    .eyebrow {
+
+        font-size: 9px;
+
+        letter-spacing: 2.5px;
+
+        margin-bottom: 14px;
+    }
+
+    h1 {
+
+        font-size:
+            clamp(38px, 12vw, 58px);
+
+        line-height: 1.02;
+    }
+
+    .intro {
+
+        font-size: 14px;
+
+        margin-bottom: 25px;
+    }
+
+    .event-date {
+
+        gap: 8px;
+
+        margin-bottom: 25px;
+    }
+
+    .date {
+
+        font-size: 9px;
+
+        letter-spacing: 2px;
+    }
+
+    .date strong {
+
+        font-size: 12px;
+
+        letter-spacing: 1px;
+    }
+
+    .time {
+
+        margin-top: 7px;
+    }
+
+    .time span {
+
+        font-size: 20px;
+    }
+
+    .time small {
+
+        font-size: 8px;
+    }
+
+    .date-line {
+
+        width: 25px;
+    }
+
+    .countdown {
+
+        gap: 4px;
+
+        margin-bottom: 32px;
+    }
+
+    .time-box {
+
+        width:
+            calc((100vw - 55px) / 4);
+
+        max-width: 82px;
+
+        height: 82px;
+
+        border-radius: 13px;
+    }
+
+    .time-box span {
+
+        font-size:
+            clamp(25px, 8vw, 38px);
+
+        letter-spacing: -1px;
+    }
+
+    .time-box small {
+
+        margin-top: 7px;
+
+        font-size: 7px;
+
+        letter-spacing: 1px;
+    }
+
+    .separator {
+
+        font-size: 20px;
+
+        margin-top: -10px;
+    }
+
+    .quote {
+
+        font-size: 18px;
+    }
+
+    .celebration {
+
+        font-size: 12px;
+    }
+
+    footer {
+
+        font-size: 7px;
+
+        letter-spacing: 1.5px;
+    }
+
+    .math {
+
+        font-size: 45px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .countdown {
+
+        gap: 2px;
+    }
+
+    .time-box {
+
+        width:
+            calc((100vw - 35px) / 4);
+
+        height: 72px;
+    }
+
+    .time-box span {
+
+        font-size: 23px;
+    }
+
+    .time-box small {
+
+        font-size: 6px;
+    }
+
+    .separator {
+
+        font-size: 16px;
+    }
+}
+
+
+/* =========================================================
+   REDUCE MOTION FOR ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+    }
+}
+```

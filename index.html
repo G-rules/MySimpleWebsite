@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Countdown to an Applied Mathematics PhD graduation">
+
+    <title>PhD Countdown | Applied Mathematics</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- =========================================
+         BACKGROUND
+         ========================================= -->
+
+    <div class="background"></div>
+    <div class="overlay"></div>
+
+    <!-- Decorative mathematics -->
+    <div class="math math-1">∑</div>
+    <div class="math math-2">π</div>
+    <div class="math math-3">∫</div>
+    <div class="math math-4">∞</div>
+    <div class="math math-5">f(x)</div>
+    <div class="math math-6">Δ</div>
+
+
+    <!-- =========================================
+         MAIN CONTENT
+         ========================================= -->
+
+    <main class="container">
+
+        <!-- Graduation Icon -->
+        <div class="graduation-icon">
+            🎓
+        </div>
+
+        <p class="eyebrow">
+            A MOMENT WORTH CELEBRATING
+        </p>
+
+        <h1>
+            Applied Mathematics
+            <span>PhD.</span>
+			  <span>DR ROSE MALULEKA</span>
+        </h1>
+
+        <p class="intro">
+            The countdown to an extraordinary achievement has begun.
+        </p>
+
+
+        <!-- =========================================
+             DATE
+             ========================================= -->
+
+        <section class="event-date">
+
+            <div class="date-line"></div>
+
+            <div>
+                <p class="date">
+                    FRIDAY
+                    <strong>18 SEPTEMBER 2026</strong>
+                </p>
+
+                <p class="time">
+                    <span color="red">08:15</span>
+                    <small>AM</small>
+                </p>
+            </div>
+
+            <div class="date-line"></div>
+
+        </section>
+
+
+        <!-- =========================================
+             COUNTDOWN
+             ========================================= -->
+
+        <section class="countdown" aria-label="PhD countdown">
+
+            <div class="time-box">
+                <span id="days">00</span>
+                <small>DAYS</small>
+            </div>
+
+            <div class="separator">:</div>
+
+            <div class="time-box">
+                <span id="hours">00</span>
+                <small>HOURS</small>
+            </div>
+
+            <div class="separator">:</div>
+
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <small>MINUTES</small>
+            </div>
+
+            <div class="separator">:</div>
+
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <small>SECONDS</small>
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             MESSAGE
+             ========================================= -->
+
+        <div class="message">
+
+            <p class="quote">
+                "The journey was long.
+                The achievement will last forever."
+            </p>
+
+            <div class="gold-line"></div>
+
+            <p class="celebration">
+                One incredible achievement.
+                <strong>One unforgettable day.</strong>
+            </p>
+
+        </div>
+
+
+        <!-- =========================================
+             FOOTER
+             ========================================= -->
+
+        <footer>
+            <p>
+                Celebrating dedication • Excellence • Perseverance
+            </p>
+
+            <span>🎓</span>
+        </footer>
+
+    </main>
+
+
+    <!-- =========================================
+         INTERNAL JAVASCRIPT
+         ========================================= -->
+
+  
+<script>
+
+    /* =====================================================
+       PHD GRADUATION SETTINGS
+       ===================================================== */
+
+    const doctorName = "Dr. ROSE MALULEKA";
+
+
+    /*
+     * Graduation date and time
+     *
+     * Friday
+     * 18 September 2026
+     * 08:15 South African Time
+     */
+
+    const targetDate =
+        new Date("2026-09-18T08:15:00+02:00").getTime();
+
+
+    /* =====================================================
+       COUNTDOWN ELEMENTS
+       ===================================================== */
+
+    const daysElement =
+        document.getElementById("days");
+
+    const hoursElement =
+        document.getElementById("hours");
+
+    const minutesElement =
+        document.getElementById("minutes");
+
+    const secondsElement =
+        document.getElementById("seconds");
+
+
+    /* =====================================================
+       UPDATE COUNTDOWN
+       ===================================================== */
+
+    function updateCountdown() {
+
+        const now =
+            new Date().getTime();
+
+        const distance =
+            targetDate - now;
+
+
+        /*
+         * ================================================
+         * COUNTDOWN FINISHED
+         * ================================================
+         */
+
+        if (distance <= 0) {
+
+            clearInterval(countdownInterval);
+
+            showCongratulations();
+
+            return;
+        }
+
+
+        /*
+         * ================================================
+         * CALCULATE TIME
+         * ================================================
+         */
+
+        const days =
+            Math.floor(
+                distance /
+                (1000 * 60 * 60 * 24)
+            );
+
+
+        const hours =
+            Math.floor(
+                (distance %
+                    (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60)
+            );
+
+
+        const minutes =
+            Math.floor(
+                (distance %
+                    (1000 * 60 * 60)) /
+                (1000 * 60)
+            );
+
+
+        const seconds =
+            Math.floor(
+                (distance %
+                    (1000 * 60)) /
+                1000
+            );
+
+
+        /*
+         * ================================================
+         * DISPLAY COUNTDOWN
+         * ================================================
+         */
+
+        daysElement.textContent =
+            String(days).padStart(2, "0");
+
+        hoursElement.textContent =
+            String(hours).padStart(2, "0");
+
+        minutesElement.textContent =
+            String(minutes).padStart(2, "0");
+
+        secondsElement.textContent =
+            String(seconds).padStart(2, "0");
+    }
+
+
+    /* =====================================================
+       CONGRATULATIONS SCREEN
+       ===================================================== */
+
+    function showCongratulations() {
+
+        /*
+         * Replace the entire main content with
+         * the graduation celebration.
+         */
+
+        document.querySelector(".container").innerHTML = `
+
+            <div class="celebration-screen">
+
+                <div class="celebration-icon">
+                    🎓
+                </div>
+
+
+                <p class="celebration-eyebrow">
+                    THE MOMENT HAS ARRIVED
+                </p>
+
+
+                <h1 class="congratulations-title">
+                    CONGRATULATIONS
+                </h1>
+
+
+                <h2 class="doctor-name">
+                    ${doctorName}
+                </h2>
+
+
+                <div class="celebration-line"></div>
+
+
+                <p class="degree">
+                    Doctor of Philosophy
+                    <br>
+                    <strong>Applied Mathematics</strong>
+                </p>
+
+
+                <p class="achievement-message">
+                    Today we celebrate your incredible
+                    achievement, dedication, perseverance
+                    and commitment to excellence.
+                </p>
+
+
+                <p class="final-message">
+                    You did it!
+                </p>
+
+
+                <div class="celebration-cap">
+                    🎓 ✨ 🎓
+                </div>
+
+            </div>
+
+        `;
+    }
+
+
+    /* =====================================================
+       START COUNTDOWN
+       ===================================================== */
+
+    updateCountdown();
+
+
+    const countdownInterval =
+        setInterval(updateCountdown, 1000);
+
+</script>
+
+
+
+</body>
+</html>
+
